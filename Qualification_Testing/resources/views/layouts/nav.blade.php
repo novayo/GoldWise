@@ -1,17 +1,11 @@
 @section('navigation_bar')
 
 <!-- A grey horizontal navbar that becomes vertical on small screens -->
-<div class="container">
-    <div class="col-md-12">
-        <img src="/img/top_logo.jpg" style="max-width: 100%; height: auto;">
-    </div>
-</div>
-
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
 
     {{-- Brand --}}
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
         <img src="/img/logo.jpg" style="width:40px;">
         翡翠花園
     </a>
@@ -27,17 +21,19 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
             
-            <li class="nav-item ml-auto">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item ml-auto">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item ml-auto">
-                <a class="nav-link" href="#">Login</a>
-            </li>
+            <div class="row" style="margin-right:5%;">
+                <li class="nav-item col-md-4">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item col-md-4">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item col-md-4">
+                    <a class="btn" href="/login" style="color: white; background: green;">Login</a>
+                </li>
+            </div>
         </ul>
-    </div>+
+    </div>
 
 </nav>
 

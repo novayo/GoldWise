@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // 幾分鐘前發布
+        // https://www.wangjingxian.cn/laravel/84.html
+        \Carbon\Carbon::setLocale('zh-TW');
     }
 }

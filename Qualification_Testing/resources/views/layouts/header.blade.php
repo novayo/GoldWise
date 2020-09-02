@@ -22,10 +22,19 @@
     <body>
         {{-- sticky-top 要在main中才會生效，因為會給他固定的高度 --}}
         <div class="main">
+            @yield('logo image')
             @yield('navigation_bar')
+
+            {{-- home --}}
             @yield('rolling banner')
             @yield('bracelet')
             @yield('ring')
+
+            {{-- upload --}}
+            @yield('upload')
+
+            {{-- detail --}}
+            @yield('commodity')
         </div>
         <footer>
             Copyright 2020 翡翠花園

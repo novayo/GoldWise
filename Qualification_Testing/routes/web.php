@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'bannerController@index');
+Route::get('/detail/{guideline}', 'bannerController@show');
+
+Route::get('/upload', function () {
+    return view('upload');
 });
+
+Route::post('/', 'bannerController@store');
