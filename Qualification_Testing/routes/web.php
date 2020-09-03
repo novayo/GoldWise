@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'bannerController@index');
 Route::get('/detail/{guideline}', 'bannerController@show');
 
-Route::get('/upload', function () {
-    return view('upload');
-});
+Route::get('/upload', 'UserController@index');
 
-Route::post('/', 'bannerController@store');
+Route::post('/', 'UserController@store');
+
+// user login
+Auth::routes();
+
+// 第三方登入
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');

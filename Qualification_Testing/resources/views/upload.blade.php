@@ -1,8 +1,7 @@
 @extends('layouts.header')
 @extends('layouts.nav')
 
-@section('upload')
-
+@section('content')
     <div style="padding: 2%;">
         <div class="container-fluid col-10" style="background:WhiteSmoke; padding: 3%; border-style: dashed;">
             <div class="container" style="padding: 2%;">

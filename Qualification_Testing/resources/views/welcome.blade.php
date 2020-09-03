@@ -2,9 +2,16 @@
 @extends('layouts.nav')
 
 @section('logo image')
+    {{-- 如果登入成功，顯示某某東西 --}}
+    @auth
+        <div class="alert alert-success" role="alert">
+            <marquee behavior="behavior" width="100%" loop="-1">嗨! <?php echo auth()->user()->name; ?> 歡迎登入</marquee>
+        </div>
+    @endauth
+
     <div class="container">
-        <div class="col-md-12">
-            <img src="/img/top_logo.jpg" style="max-width: 100%; height: auto;">
+        <div class="col-xs-12">
+            <img src="/img/top_logo.jpg" style="max-width: 100%;">
         </div>
     </div>
 @endsection

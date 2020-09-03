@@ -1,7 +1,7 @@
 @extends('layouts.header')
 @extends('layouts.nav')
 
-@section('commodity')
+@section('content')
     <div style="padding: 2%;">
         <div class="container-fluid">
             <div class="card text-center">
@@ -95,11 +95,4 @@
             </div>
         </div>
     </div>
-    
-    {{-- <p>
-        {{ $commodity->guideline }}
-        {{ $commodity->subguideline }}
-        {{ $commodity->content }}
-        {{ $commodity->attribute }}
-    </p> --}}
 @endsection
