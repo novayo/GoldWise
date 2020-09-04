@@ -11,54 +11,57 @@
 
         <!-- Toggler/collapsibe Button -->
         {{-- 設定當手機畫面時，nav會收起來 --}}
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Links -->
         {{-- ml-auto：表示東西全靠右 --}}
-        <div class="collapse navbar-collapse container-fluid" id="collapsibleNavbar">
-            <div class="navbar-nav ml-auto " style="margin-right:5%;">
-                
-                <div class="row">
-                    <a class="nav-link nav-item align-middle col-sm-12 col-md-3" href="/">首頁</a>
-                    <a class="nav-link nav-item align-middle col-sm-12 col-md-3" href="https://www.jadegardentw.com/index.html">關於</a>
-
-                    <!-- Authentication Links -->
-                    @guest
-                        <div class="nav-item align-middle col-sm-12 col-md-4">
-                            <a href="{{ route('login') }}" type="button" class="nav-item btn btn-outline-danger">登入</a>
-                        </div>
-                        @if (Route::has('register'))
-                            <div class="nav-item align-middle col-sm-12 col-md-2">
-                                <a href="{{ route('register') }}" type="button" class="nav-item btn btn-outline-info">註冊</a>
+        <div class="w-100" style="margin-right: 5%;">
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <div class="navbar-nav ml-auto">
+                    
+                    {{-- <div class="row"> --}}
+                        <a class="nav-link nav-item col-sm-12 col-md-3" href="/">首頁</a>
+                        <a class="nav-link nav-item col-sm-12 col-md-3" href="https://www.jadegardentw.com/index.html">關於</a>
+    
+                        <!-- Authentication Links -->
+                        @guest
+                            <div class="nav-item col-sm-12 col-md-4">
+                                <a href="{{ route('login') }}" type="button" class="nav-item btn btn-outline-danger">登入</a>
                             </div>
-                        @endif
-                    @else
-                        <div class="nav-item dropdown align-middle col-sm-12 col-md-3">
-                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ Auth::user()->name }}
-                            </button>
-                            <div class="dropdown-menu">
-                                {{-- 上傳按鈕 --}}
-                                <a class="dropdown-item" href="/upload">上傳商品</a>
-
-                                {{-- 分隔線 --}}
-                                <div class="dropdown-divider"></div>
-
-                                {{-- 登出按鈕 --}}
-                                <a class="dropdown-item" href="{{ route('logout') }}" 
-                                    onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"> 登出 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                            @if (Route::has('register'))
+                                <div class="nav-item col-sm-12 col-md-2">
+                                    <a href="{{ route('register') }}" type="button" class="nav-item btn btn-outline-info">註冊</a>
+                                </div>
+                            @endif
+                        @else
+                            <div class="nav-item dropdown col-sm-12 col-md-3">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </button>
+                                <div class="dropdown-menu">
+                                    {{-- 上傳按鈕 --}}
+                                    <a class="dropdown-item" href="/upload">上傳商品</a>
+    
+                                    {{-- 分隔線 --}}
+                                    <div class="dropdown-divider"></div>
+    
+                                    {{-- 登出按鈕 --}}
+                                    <a class="dropdown-item" href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();"> 登出 </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    @endguest
+                        @endguest
+                    {{-- </div> --}}
                 </div>
             </div>
         </div>
+        
 
     </nav>
 
