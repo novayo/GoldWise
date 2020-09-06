@@ -9,7 +9,38 @@
         </div>
     @endauth
 
-    <div class="container">
+    @guest
+        <script>
+            $(document).ready(function(){
+                $('#exampleModalCenter').modal('show');
+            });
+        </script>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">你尚未登入</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body w-100">
+                    <div class="row justify-content-center">
+                        <a href="{{ route('login') }}" type="button" class="nav-item btn btn-outline-danger">登入</a>
+                        <a href="{{ route('register') }}" type="button" class="nav-item btn btn-outline-info">註冊</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    @endguest
+
+    <div id="logo_section" class="container">
         <div class="col-xs-12">
             <img src="/img/top_logo.jpg" style="max-width: 100%;">
         </div>
@@ -62,56 +93,58 @@
 @endsection
 
 @section('bracelet')
-    <div style="padding: 2%;">
+    <div id="bracelet_section" style="padding: 2%;">
         <div class="container-fluid" style="background:WhiteSmoke; padding: 3%;">
             {{-- 標題 --}}
             <h1>手鐲</h1>
 
             {{-- 手鐲 --}}
-            <div class="row">
-                @foreach ($bracelets as $bracelet)
-                    <div class="my-4 col-xs-12 col-sm-6 col-md-3">
-                        <div class="card h-100">
-                            <img src="/img/{{ $bracelet->image_name }}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title" style="font-size: 150%">{{ $bracelet->guideline }}</h5>
-                                <p class="card-text">
-                                    <?php echo str_replace(chr(10), "<br />", $bracelet->subguideline) ?>
-                                </p>
-                                <a href="/detail/{{ $bracelet->guideline }}" class="btn btn-primary">更多資訊</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            @csrf
+            <div id="bracelet"></div>
 
+            {{-- load more jquery --}}
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    // 拿token
+                    var _token = $('input[name="_token"]').val();
+                    load_more_data(-1, "bracelet", _token);
+                    
+                    // 按了之後
+                    $(document).on('click', '#load_more_bracelet', function(){
+                        var cur_id = $(this).data('id'); // 拿 data-id 資料 成 int (https://stackoverflow.com/questions/5309926/how-to-get-the-data-id-attribute)
+                        $('#load_more_bracelet').html('<b>讀取中...</b>'); // 文字改變
+                        load_more_data(cur_id, "bracelet", _token); // 更新資料
+                    });
+                });
+            </script>
         </div>
     </div>
 @endsection
 
 @section('ring')
-    <div style="padding: 2%;">
+    <div id="ring_section" style="padding: 2%;">
         <div class="container-fluid" style="background:Gainsboro; padding: 3%;">
             {{-- 標題 --}}
             <h1>戒指</h1>
 
-            <div class="row">
-                @foreach($rings as $ring)
-                    <div class="my-4 col-xs-12 col-sm-6 col-xl-3">
-                        <div class="hover_action card bg-dark text-white h-100">
-                            <a href="/detail/{{ $ring->guideline }}" class="stretched-link" id="cardlink">
-                                <img src="/img/{{ $ring->image_name }}" class="card-img">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title" style="font-size: 150%; color: black;">{{ $ring->guideline }}</h5>
-                                    <p class="card-text">
-                                        <?php echo str_replace(chr(10), "<br />", $ring->subguideline) ?>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            @csrf
+            <div id="ring"></div>
+
+            {{-- load more jquery --}}
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    // 拿token
+                    var _token = $('input[name="_token"]').val();
+                    load_more_data(-1, "ring", _token);
+
+                    // 按了之後
+                    $(document).on('click', '#load_more_ring', function(){
+                        var cur_id = $(this).data('id'); // 拿 data-id 資料 成 int (https://stackoverflow.com/questions/5309926/how-to-get-the-data-id-attribute)
+                        $('#load_more_ring').html('<b>讀取中...</b>'); // 文字改變
+                        load_more_data(cur_id, "ring", _token); // 更新資料
+                    });
+                });
+            </script>
         </div>
     </div>
 @endsection

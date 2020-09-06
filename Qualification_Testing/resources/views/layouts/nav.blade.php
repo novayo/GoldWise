@@ -17,46 +17,49 @@
 
         <!-- Links -->
         {{-- ml-auto：表示東西全靠右 --}}
-        <div class="w-100" style="margin-right: 5%;">
+        <div class="w-100">
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <div class="navbar-nav ml-auto">
+                <div class="navbar-nav container float-left" style="margin-right: 5%;">
                     
-                    {{-- <div class="row"> --}}
-                        <a class="nav-link nav-item col-sm-12 col-md-3" href="/">首頁</a>
-                        <a class="nav-link nav-item col-sm-12 col-md-3" href="https://www.jadegardentw.com/index.html">關於</a>
+                        {{-- <div class="row"> --}}
+                        <div class="row ml-auto nav-item col-sm-12 col-md-6" style="">
+                            <a class="nav-link ml-auto mx-1" href="#logo_section">首頁</a>
+                            <a class="nav-link ml-auto mx-1" href="#bracelet_section">手鐲</a>
+                            <a class="nav-link ml-auto mx-1" href="#ring_section">戒指</a>
+                            <a class="nav-link ml-auto mx-1" href="https://www.jadegardentw.com/index.html">關於</a>
+                        
     
-                        <!-- Authentication Links -->
-                        @guest
-                            <div class="nav-item col-sm-12 col-md-4">
-                                <a href="{{ route('login') }}" type="button" class="nav-item btn btn-outline-danger">登入</a>
-                            </div>
-                            @if (Route::has('register'))
-                                <div class="nav-item col-sm-12 col-md-2">
+                            <!-- Authentication Links -->
+                            @guest
+                                <div class="nav-item ml-auto mx-1">
+                                    <a href="{{ route('login') }}" type="button" class="nav-item btn btn-outline-danger">登入</a>
+                                </div>
+                                <div class="nav-item ml-auto mx-1">
                                     <a href="{{ route('register') }}" type="button" class="nav-item btn btn-outline-info">註冊</a>
                                 </div>
-                            @endif
-                        @else
-                            <div class="nav-item dropdown col-sm-12 col-md-3">
-                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->name }}
-                                </button>
-                                <div class="dropdown-menu">
-                                    {{-- 上傳按鈕 --}}
-                                    <a class="dropdown-item" href="/upload">上傳商品</a>
-    
-                                    {{-- 分隔線 --}}
-                                    <div class="dropdown-divider"></div>
-    
-                                    {{-- 登出按鈕 --}}
-                                    <a class="dropdown-item" href="{{ route('logout') }}" 
-                                        onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();"> 登出 </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                            @else
+                                <div class="nav-item dropdown mx-4">
+                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ Auth::user()->name }}
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        {{-- 上傳按鈕 --}}
+                                        <a class="dropdown-item" href="/upload">上傳商品</a>
+        
+                                        {{-- 分隔線 --}}
+                                        <div class="dropdown-divider"></div>
+        
+                                        {{-- 登出按鈕 --}}
+                                        <a class="dropdown-item" href="{{ route('logout') }}" 
+                                            onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();"> 登出 </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                        @endguest
+                            @endguest
+                        </div>
                     {{-- </div> --}}
                 </div>
             </div>

@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'bannerController@index');
-Route::get('/detail/{guideline}', 'bannerController@show');
+Route::post('/load_more', 'bannerController@load_more');
+Route::post('/', 'UserController@store');
 
+Route::get('/detail/{guideline}', 'bannerController@show');
 Route::get('/upload', 'UserController@index');
 
-Route::post('/', 'UserController@store');
+
 
 // user login
 Auth::routes();
