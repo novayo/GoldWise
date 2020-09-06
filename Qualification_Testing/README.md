@@ -1,9 +1,11 @@
 # My First Blogger
+
 ###### tags: `Laravel`
 
 ---
 
 ## [Source Code](https://github.com/novayo/GoldWise/tree/master/Qualification_Testing)
+[![hackmd-github-sync-badge](https://hackmd.io/CSLtVxwGTfW1egrds1ZOTw/badge)](https://hackmd.io/CSLtVxwGTfW1egrds1ZOTw)
 
 ---
 
