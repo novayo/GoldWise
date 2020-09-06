@@ -23,9 +23,9 @@
                     
                         {{-- <div class="row"> --}}
                         <div class="row ml-auto nav-item col-sm-12 col-md-6" style="">
-                            <a class="nav-link ml-auto mx-1" href="#logo_section">首頁</a>
-                            <a class="nav-link ml-auto mx-1" href="#bracelet_section">手鐲</a>
-                            <a class="nav-link ml-auto mx-1" href="#ring_section">戒指</a>
+                            <a class="nav-link ml-auto mx-1" href={{ route('home')."#logo_section"}}>首頁</a>
+                            <a class="nav-link ml-auto mx-1" href={{ route('home')."#bracelet_section"}}>手鐲</a>
+                            <a class="nav-link ml-auto mx-1" href={{ route('home')."#ring_section"}}>戒指</a>
                             <a class="nav-link ml-auto mx-1" href="https://www.jadegardentw.com/index.html">關於</a>
                         
     

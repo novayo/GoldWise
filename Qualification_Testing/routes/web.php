@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'bannerController@index');
+Route::get('/', 'bannerController@index')->name('home');
 Route::post('/load_more', 'bannerController@load_more');
 Route::post('/', 'UserController@store');
 

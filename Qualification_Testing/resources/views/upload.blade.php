@@ -16,7 +16,7 @@
                     <div class="input-group mb-3">
                         <div class="custom-file">
                             <input name="upload_image" required accept=".png, .jpg, .jpeg" type="file" class="custom-file-input" id="image" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="image">選擇圖片 (只接受.png .jpg .jpeg)</label>
+                            <label class="custom-file-label" for="image" style="word-break: keep-all;">選擇圖片 (只接受.png .jpg .jpeg)</label>
                         </div>
                     </div>
                     {{-- 替換圖片文字 --}}
