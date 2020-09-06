@@ -34,7 +34,7 @@
                                 </h2>
                             </div>
                       
-                        <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordionExample">
+                        <div id="collapse1" class="collapse show" aria-labelledby="heading1">
                             <div class="card-body">
                                 <?php echo str_replace(chr(10), "<br />",  $commodity->subguideline ) ?>
                             </div>
@@ -50,7 +50,7 @@
                                 </h2>
                             </div>
                       
-                        <div id="collapse2" class="collapse show" aria-labelledby="heading2" data-parent="#accordionExample">
+                        <div id="collapse2" class="collapse show" aria-labelledby="heading2">
                             <div class="card-body">
                                 <?php echo str_replace(chr(10), "<br />",  $commodity->content ) ?>
                             </div>
@@ -74,11 +74,9 @@
                         // 如果 全部展開 被按
                         if ($(this).is(':checked') && $(this).val() == 'option1') {
                             // accordionExample 要 data-parent的名稱
-                            $('#accordionExample .collapse').removeAttr("data-parent");
                             $('#accordionExample .collapse').collapse('show');
                         }
                         else if ($(this).is(':checked') && $(this).val() == 'option2'){
-                            $('#accordionExample .collapse').removeAttr("data-parent");
                             $('#accordionExample .collapse').collapse('hide');
                         }
 
