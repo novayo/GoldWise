@@ -83,12 +83,21 @@ class LoginController extends Controller
 
             // 如果沒有，加入資料庫
             else{
+                $name = $user->getName();
+                if (!$user->getName()){
+                    $name = '無Username';
+                }
                 $newUser = User::create([
-                    'name' => $user->getName(),
+                    'name' => $name,
                     'email' => $user->getEmail(),
                     $provider_id => $user->getId(),
                 ]);
             }
+        }
+
+        if ($newUser->name == '無Username'){
+            $newUser->name = $user->getName();
+            $newUser->save();
         }
 
         // user login
