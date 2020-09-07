@@ -65,7 +65,6 @@ class LoginController extends Controller
     {
         $provider_id = $provider.'_id';
         $user = Socialite::driver($provider)->user();
-
         // dd($user);
 
         // 先拿看看有沒有對應的id
@@ -87,11 +86,16 @@ class LoginController extends Controller
                 if (!$user->getName()){
                     $name = '無Username';
                 }
+
                 $newUser = User::create([
                     'name' => $name,
                     'email' => $user->getEmail(),
                     $provider_id => $user->getId(),
                 ]);
+
+                // user login
+                Auth::login($newUser, true);
+                return redirect($this->redirectTo);
             }
         }
 
