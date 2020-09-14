@@ -1,4 +1,7 @@
 # React Native
+
+[![hackmd-github-sync-badge](https://hackmd.io/U6zG3M1uSMWQAsGmIo7fiA/badge)](https://hackmd.io/U6zG3M1uSMWQAsGmIo7fiA)
+
 ###### tags: `React`
 
 ## [安裝環境](https://www.youtube.com/watch?v=pflXnUNMsNk&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=2)
