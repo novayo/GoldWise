@@ -1,13 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import styles from './share/globalStyle';
+import AppNavigator from './routes/HomeStack';
+import ReduxThunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from "redux";
+import rootReducer from './reducers';
+
+const store = createStore(rootReducer, {}, applyMiddleware(ReduxThunk));
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <Provider store={store}>
+      <AppNavigator />
+    </Provider>
+
   );
 }
