@@ -13,21 +13,21 @@ class Blogs extends Component {
     }
 
     render() {
-        console.log(this.props.isLoading);
         return (
-            <View>
+            <View styles={Styles.container}>
                 {
                     this.props.isLoading ? <Text style={{ fontSize: 50, fontWeight: 'bold' }}> Loading </Text> :
-                        <View style={Styles.container}>
+                        <View>
                             <FlatButton title="Post" onPress={() => this.props.navigation.navigate('Post')} />
-                            <FlatList style={{ flex: 1 }}
+                            <FlatList
+                                contentInset={{ bottom: 130 }}
                                 data={this.props.blogsList}
                                 keyExtractor={item => item.key}
                                 renderItem={({ item }) => {
                                     return (
                                         <View style={Styles.FlatList}>
-                                            <Text style={{ fontSize: 25, lineHeight: 15, fontWeight: 'bold', color: '#fff' }}>{item.title}</Text>
-                                            <Text style={{ fontSize: 20, lineHeight: 30, color: '#fff', marginTop: 30, }}>{item.content}</Text>
+                                            <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#fff' }}>{item.title}</Text>
+                                            <Text style={{ fontSize: 20, color: '#fff', marginTop: 30, }}>{item.content}</Text>
 
                                             <View style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 25 }}>
                                                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Edit', { ...item })}>

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         backgroundColor: '#f01d71',
         margin: 10,
-        alignItems: 'flex-end',
+        // alignItems: 'flex-end',
     },
     buttonText: {
         color: 'white',
