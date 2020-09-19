@@ -6,19 +6,19 @@ import Header from '../shared/header';
 
 const { Navigator, Screen } = createStackNavigator();
 
-export const AboutStack = ({navigation}) => (
+export const AboutStack = ({ navigation }) => (
   <Navigator screenOptions={styles.Default}>
     <Screen name="About" component={About} options={{
-      headerTitle: () => <Header navigation={navigation} title='About GameZone' />,
-      headerBackground: () => <Image source={require('../assets/game_bg.png')} style={{height: 100}} />,
+      headerTitle: () => <Header navigation={navigation} title='About' />,
+      headerBackground: () => <Image source={require('../assets/game_bg.png')} style={{ height: 100 }} />,
     }} />
   </Navigator>
 );
-  
+
 const styles = {
-  Default:{
+  Default: {
     headerTintColor: '#444',
-    headerStyle:{
+    headerStyle: {
       backgroundColor: '#eee',
       height: 100,
     },

@@ -4,8 +4,11 @@ import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import FlatButton from '../shared/button';
+import _ from "lodash";
+import { editReviews } from "../actions";
+import { connect } from "react-redux";
 
-export default function HomeModal({ addNewReview }) {
+function Edit(props) {
     const reviewSchema = yup.object({
         title: yup.string()
             .required()
@@ -20,16 +23,21 @@ export default function HomeModal({ addNewReview }) {
             })
     });
 
+
+    const addNewReview = (value) => {
+        props.editReviews(value.title, value.body, value.rate, value.id)
+    }
+
     return (
         <View style={globalStyles.container}>
             <Formik
-                initialValues={{ title: '', rate: '', body: '' }}
+                initialValues={{ title: props.route.params.title, rate: props.route.params.rate, body: props.route.params.body, id: props.route.params.id }}
                 validationSchema={reviewSchema}
                 onSubmit={(value, action) => {
-                    action.resetForm();
                     addNewReview(value);
-                }}
-            >
+                    props.navigation.pop();
+                }}>
+
                 {(props) => (
                     <View>
                         <TextInput
@@ -66,5 +74,9 @@ export default function HomeModal({ addNewReview }) {
                 )}
             </Formik>
         </View>
+
     );
 }
+
+
+export default connect(null, { editReviews })(Edit);
