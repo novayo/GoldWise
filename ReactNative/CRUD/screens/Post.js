@@ -30,7 +30,7 @@ function Post(props) {
         <View style={Styles.container} >
             <Text>Post</Text>
             <TextInput style={Styles.TextTitleInput} placeholder="Title" onChangeText={changeTitleHandler} value={dialog.title} />
-            <TextInput style={Styles.TextContentInput} placeholder="Content" onChangeText={changeContentHandler} value={dialog.content} />
+            <TextInput multiline style={Styles.TextContentInput} placeholder="Content" onChangeText={changeContentHandler} value={dialog.content} />
             <FlatButton title="submit" onPress={submit} />
         </View>
     );
